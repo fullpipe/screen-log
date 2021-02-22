@@ -207,10 +207,30 @@ export class Display {
                 } else if (typeof something.message !== 'undefined') {
                     return something.message;
                 } else {
-                    return JSON.stringify(something);
+                    return this.safeStringify(something);
                 }
             default:
-                return JSON.stringify(something);
+                return this.safeStringify(something);
         }
+    }
+
+    safeStringify(obj: any, indent: number = 2) {
+        let cache: any[] = [];
+        const retVal = JSON.stringify(
+            obj,
+            (_, value) => {
+                if (typeof value === 'object' && value !== null) {
+                    return cache.includes(value)
+                        ? 'CIRCULAR REFERENCE' // Duplicate reference found, discard key
+                        : cache.push(value) && value; // Store value in our collection
+                }
+
+                return value;
+            },
+            indent,
+        );
+        cache = null;
+
+        return retVal;
     }
 }

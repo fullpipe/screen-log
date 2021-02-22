@@ -14,6 +14,16 @@
 
             console.log({ foo: 'bar' });
             counter = 0;
+
+            var obj = {
+                a: 'foo',
+                b: obj,
+                c: 2,
+            };
+
+            obj.b = obj;
+
+            console.log(obj);
             setInterval((_) => {
                 console.log('counter ' + counter++);
             }, 1000);
