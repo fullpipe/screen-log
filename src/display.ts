@@ -70,7 +70,10 @@ export class Display {
         this.frame.setAttribute('border', '0');
         this.frame.setAttribute('frameborder', '0');
         this.frame.setAttribute('cellspacing', '0');
-        this.frame.setAttribute('style', 'position: fixed; bottom: 0; left: 0; width: 100%; height: 30%;');
+        this.frame.setAttribute(
+            'style',
+            'position: fixed; z-index: 9998; bottom: 0; left: 0; width: 100%; height: 30%;',
+        );
         document.body.appendChild(this.frame);
 
         this.document = this.frame.contentDocument;
