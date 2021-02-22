@@ -192,7 +192,6 @@ export class Display {
     }).bind(this);
 
     private toString(something: any): string {
-        console.info(typeof something);
         switch (typeof something) {
             case 'string':
             case 'number':

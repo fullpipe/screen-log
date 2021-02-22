@@ -18,8 +18,7 @@ export function copyTextToClipboard(document: Document, text: string) {
     textArea.select();
 
     try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
+        document.execCommand('copy');
     } catch (err) {}
 
     document.body.removeChild(textArea);

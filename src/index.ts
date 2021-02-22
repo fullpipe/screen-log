@@ -6,3 +6,7 @@ screenLog.register();
 window.addEventListener('load', () => {
     screenLog.init();
 });
+
+if (document.readyState === 'complete') {
+    screenLog.init();
+}

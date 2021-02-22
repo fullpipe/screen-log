@@ -2,14 +2,14 @@ import { Button } from './button';
 import { Display } from './display';
 
 export class ScreenLog {
-    initLogs: {
+    private initLogs: {
         type: string;
         args: any[];
     }[] = [];
-    display: Display;
-    button: Button;
+    private display: Display;
+    private button: Button;
 
-    realConsole: {
+    private realConsole: {
         [key: string]: any;
     } = {};
 
@@ -23,8 +23,8 @@ export class ScreenLog {
         this.realConsole.error = console.error;
         console.error = this.error.bind(this);
 
-        // this.realConsole.info = console.info;
-        // console.info = this.info.bind(this);
+        this.realConsole.info = console.info;
+        console.info = this.info.bind(this);
 
         this.realConsole.debug = console.debug;
         console.debug = this.debug.bind(this);
@@ -38,6 +38,10 @@ export class ScreenLog {
     }
 
     init() {
+        if (this.display) {
+            return;
+        }
+
         this.display = new Display();
         this.display.init();
 
@@ -52,7 +56,7 @@ export class ScreenLog {
         this.bindings();
     }
 
-    bindings() {
+    private bindings() {
         this.button.button.addEventListener('click', () => {
             this.display.toggle();
         });
