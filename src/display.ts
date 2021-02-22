@@ -202,8 +202,10 @@ export class Display {
             case 'bigint':
                 return '' + something;
             case 'object':
-                if (typeof something.toString === 'function') {
-                    return something.toString();
+                if (typeof something.stack !== 'undefined') {
+                    return something.stack;
+                } else if (typeof something.message !== 'undefined') {
+                    return something.message;
                 } else {
                     return JSON.stringify(something);
                 }
