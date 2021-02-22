@@ -4,6 +4,7 @@
   "description": "Now you can see your console.log and console errors even on mobile devices",
   "main": "index.js",
   "scripts": {
+    "build:prod": "webpack --mode='production'",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
   },
