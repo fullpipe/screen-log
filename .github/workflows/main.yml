@@ -40,3 +40,13 @@ jobs:
               run: npm i
             - name: Build
               run: npm run build:prod
+            - name: Upload a Build Artifact
+              uses: actions/upload-artifact@v2.2.2
+              with:
+                  # Artifact name
+                  name: screen-log.js
+                  # A file, directory or wildcard pattern that describes what to upload
+                  path: dist/screen-log.js
+                  # The desired behavior if no files are found using the provided path.
+
+                  retention-days: 90
