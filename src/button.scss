@@ -1,0 +1,24 @@
+button {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+
+    height: 30px;
+    width: 30px;
+
+    margin-top: -50%;
+
+    background-color: black;
+    color: white;
+    font-size: 26px;
+    border: none;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    opacity: 0.4;
+    z-index: 9999;
+    outline: none;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="screen-log.js"></script>
+
+        <script>
+            console.log('one');
+            console.log('two', 'foo');
+            console.log('three', false);
+            console.warn('four', false);
+
+            console.log({ foo: 'bar' });
+            counter = 0;
+            setInterval((_) => {
+                console.log('counter ' + counter++);
+            }, 1000);
+
+            fun();
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+            <li><a href="#" onclick="console.debug(this)">console.debug</a></li>
+            <li><a href="#" onclick="console.info(this)">console.info</a></li>
+            <li><a href="#" onclick="console.warn(this)">console.warn</a></li>
+            <li><a href="#" onclick="console.error(this)">console.error</a></li>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+            <li><a href="#" onclick="console.log(this)">console.log</a></li>
+        </ul>
+    </body>
+</html>
