@@ -18,6 +18,11 @@
                 console.log('counter ' + counter++);
             }, 1000);
 
+            setTimeout((_) => {
+                console.log('error');
+                throw new Error('asd');
+            }, 1000);
+
             fun();
         </script>
     </head>

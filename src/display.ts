@@ -198,6 +198,12 @@ export class Display {
             case 'number':
             case 'bigint':
                 return '' + something;
+            case 'object':
+                if (typeof something.toString === 'function') {
+                    return something.toString();
+                } else {
+                    return JSON.stringify(something);
+                }
             default:
                 return JSON.stringify(something);
         }
