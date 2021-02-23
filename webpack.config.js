@@ -13,6 +13,14 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: ['raw-loader', 'extract-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.(png|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                    },
+                ],
+            },
         ],
     },
     resolve: {

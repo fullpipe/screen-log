@@ -8,17 +8,21 @@ button {
 
     margin-top: -50%;
 
-    background-color: black;
-    color: white;
-    font-size: 26px;
-    border: none;
     border-radius: 50%;
 
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    text-align: center;
-    opacity: 0.4;
+    opacity: 0.7;
     z-index: 9999;
     outline: none;
+
+    background-color: white;
+    background-position: center center;
+    background-size: cover;
+    border: 1px dashed black;
+    padding: 5px;
+    background-image: url('../asset/biotech-black-18dp.svg');
+    background-repeat: no-repeat;
+    background-origin: content-box;
 }

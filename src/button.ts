@@ -10,7 +10,6 @@ export class Button {
 
         this.button = document.createElement('button');
         this.button.setAttribute('style', css);
-        this.button.innerText = '⚒';
 
         document.body.appendChild(this.button);
     }

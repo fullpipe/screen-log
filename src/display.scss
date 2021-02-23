@@ -24,6 +24,7 @@ header {
     display: flex;
     font-size: 10px;
     background: lightgray;
+    z-index: 2;
 
     button {
         border: none;
@@ -46,6 +47,7 @@ ul {
         padding: 3px;
         line-height: 13px;
         transition: 0.2s all;
+        position: relative;
 
         &.debug {
             color: #0014ff;
@@ -63,13 +65,25 @@ ul {
             border-bottom: 1px #fdf6cf solid;
         }
 
+        &.copied {
+            &:after {
+                content: 'c';
+                position: absolute;
+                right: 3px;
+                top: 3px;
+                color: #6470b4;
+                font-weight: bold;
+            }
+        }
+
         &.copy {
             background-color: #d5dcff;
-            position: relative;
+
             &:after {
                 content: 'copied';
                 position: absolute;
-                right: 3;
+                right: 3px;
+                top: 3px;
                 color: #263066;
                 font-weight: bold;
             }

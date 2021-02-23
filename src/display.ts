@@ -60,7 +60,10 @@ export class Display {
             if (target.tagName == 'LI') {
                 target.classList.add('copy');
                 copyTextToClipboard(this.document, target.innerText);
-                setTimeout((_) => target.classList.remove('copy'), 1000);
+                setTimeout((_) => {
+                    target.classList.remove('copy');
+                    target.classList.add('copied');
+                }, 1000);
             }
         });
     }
