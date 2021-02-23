@@ -20,6 +20,27 @@ sl.src = 'https://cdn.jsdelivr.net/gh/fullpipe/screen-log@latest/dist/screen-log
 document.head.appendChild(sl);
 ```
 
-## Demo
+### What can you do?
+
+- `console.log(...)`, `console.warn(...)`, `console.error(...)`, `console.info(...)`, `console.debug(...)`
+- `console.clear()`
+- Also it logs js errors with `window.addEventListener('error', ...)`
+- `bypass` mode, logs container becomes transparent for user interactions
+- copy message by clicking
+
+
+### Demo
 
 ![Demo](./showtime.gif)
+
+## TODO
+
+- automate builds/releases, now you have to `npm run build:prod`
+- make npm library?
+- configuration
+  - size
+  - position
+  - "switch" position
+- initial config
+  - window.screenShowOnStart = true
+  - window.screenConfig = {...}
