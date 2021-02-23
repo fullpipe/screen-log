@@ -75,7 +75,7 @@ export class Display {
         this.frame.setAttribute('cellspacing', '0');
         this.frame.setAttribute(
             'style',
-            'position: fixed; z-index: 9998; bottom: 0; left: 0; width: 100%; height: 30%;',
+            'position: fixed; z-index: 9998; bottom: 0; left: 0; width: 100%; height: 30%; box-shadow: #0000004a 0px 0px 5px;',
         );
         document.body.appendChild(this.frame);
 
@@ -158,6 +158,7 @@ export class Display {
             this.frame.style.pointerEvents = 'none';
             this.frame.style.opacity = '0.5';
             header.style.display = 'none';
+            this.startLogFollowing();
         });
 
         const header = this.document.createElement('header');
@@ -205,6 +206,12 @@ export class Display {
             case 'bigint':
                 return '' + something;
             case 'object':
+                if (typeof something.toString == 'function') {
+                    if (something.toString().includes('object HTML')) {
+                        return something.outerHTML;
+                    }
+                }
+
                 if (typeof something.stack !== 'undefined') {
                     return something.stack;
                 } else if (typeof something.message !== 'undefined') {

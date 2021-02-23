@@ -4,57 +4,80 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <script src="screen-log.js"></script> -->
+        <script src="screen-log.js"></script>
 
         <script>
-            console.log('one');
-            console.log('two', 'foo');
-            console.log('three', false);
-            console.warn('four', false);
+            // setTimeout(() => {
+            //     var sl = document.createElement('script');
+            //     sl.src = 'screen-log.js';
+            //     document.head.appendChild(sl);
+            // }, 1000);
 
-            console.log({ foo: 'bar' });
-            counter = 0;
-
-            var obj = {
-                a: 'foo',
-                b: obj,
-                c: 2,
-            };
-
-            obj.b = obj;
-
-            console.log(obj);
-
-            setTimeout(() => {
-                var s = document.createElement('script');
-                s.src = 'screen-log.js';
-                document.head.appendChild(s);
-            }, 1000);
+            console.log('Some logs before load', true, { foo: 'bar' });
 
             setInterval((_) => {
-                console.log('counter ' + counter++);
+                console.log('interval log: ' + new Date().toISOString());
             }, 3000);
 
             setTimeout((_) => {
-                console.log('error NOW:');
-                throw new Error('asd');
+                throw new Error('error throwing test');
             }, 4000);
-
-            // fun();
         </script>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            main {
+                display: flex;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+            }
+
+            main div {
+                flex: 50%;
+                padding: 100px 20px;
+                box-sizing: border-box;
+                text-align: center;
+                background-color: blue;
+                color: white;
+                font-family: monospace;
+            }
+        </style>
     </head>
     <body>
-        <ul>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-            <li><a href="#" onclick="console.debug(this)">console.debug</a></li>
-            <li><a href="#" onclick="console.info(this)">console.info</a></li>
-            <li><a href="#" onclick="console.warn(this)">console.warn</a></li>
-            <li><a href="#" onclick="console.error(this)">console.error</a></li>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-            <li><a href="#" onclick="console.log(this)">console.log</a></li>
-        </ul>
+        <main>
+            <div onclick="console.log('console.log test: ' + (new Date()).toISOString())">console.log</div>
+            <div onclick="console.info('console.info test: ' + (new Date()).toISOString())">console.info</div>
+            <div onclick="console.debug('console.debug test: ' + (new Date()).toISOString())">console.debug</div>
+            <div onclick="console.warn('console.warn test: ' + (new Date()).toISOString())">console.warn</div>
+            <div onclick="console.error('console.error test: ' + (new Date()).toISOString())">console.error</div>
+            <div onclick="console.clear()">console.clear</div>
+
+            <div onclick="throw new Error('error throwing test');">throw new Error(...);</div>
+            <div onclick="setTimeout(() => { throw new Error('error throwing with setTimeout test');}, 300);">
+                throw new Error(...) with setTimeout
+            </div>
+            <div onclick="noFunc();">function not defined</div>
+            <div onclick="var obj = { foo: 'bar', me: null }; obj.me = obj; console.log(obj)">circular reference</div>
+        </main>
+
+        <script>
+            document.querySelectorAll('main > div').forEach((div) => {
+                console.log(div);
+                div.style.backgroundColor = getRandomColor();
+            });
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        </script>
     </body>
 </html>
