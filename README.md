@@ -8,7 +8,7 @@ Inject script at the top of <head> tag.
 
 ```html
 <head>
-    <script src="https://cdn.jsdelivr.net/gh/fullpipe/screen-log@latest/dist/screen-log.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fullpipe/screen-log@1.0.6/dist/screen-log.js"></script>
     ...
 </head>
 ```
@@ -16,7 +16,7 @@ Inject script at the top of <head> tag.
 or with js
 ```js
 var sl = document.createElement('script');
-sl.src = 'https://cdn.jsdelivr.net/gh/fullpipe/screen-log@latest/dist/screen-log.js';
+sl.src = 'https://cdn.jsdelivr.net/gh/fullpipe/screen-log@1.0.6/dist/screen-log.js';
 document.head.appendChild(sl);
 ```
 
