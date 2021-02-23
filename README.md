@@ -14,6 +14,7 @@ Inject script at the top of <head> tag.
 ```
 
 or with js
+
 ```js
 var sl = document.createElement('script');
 sl.src = 'https://cdn.jsdelivr.net/gh/fullpipe/screen-log@1.0.6/dist/screen-log.js';
@@ -35,6 +36,7 @@ document.head.appendChild(sl);
 
 ## TODO
 
+- Execute user input. `eval('alert("boo!")')`
 - automate builds/releases, now you have to `npm run build:prod`
 - make npm library?
 - configuration
